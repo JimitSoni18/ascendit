@@ -1,0 +1,9 @@
+# deps and lockfiles
+/**/node_modules/
+/**/package-lock.json
+
+# build files
+/**/*.js
+
+# env
+/**/.env*
