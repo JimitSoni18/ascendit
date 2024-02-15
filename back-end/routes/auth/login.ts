@@ -1,6 +1,6 @@
 import { loginUser, signupUser } from "../../controllers/userController";
 
-const express = require("express");
+import express from "express";
 
 // controller functions
 const router = express.Router();

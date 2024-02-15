@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 import loginRoutes from "./routes/auth/login";
 
 const app = express();
