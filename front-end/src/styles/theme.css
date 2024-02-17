@@ -1,0 +1,166 @@
+@import "typography.css";
+:root {
+  --primary: #9852c6;
+  --secondary: #4a86e8;
+  --tertiary: #f7c6f3;
+  --background: #121212;
+  --text: #e0e0e0;
+  --link: #858585;
+  --link-hover: #cccccc;
+  --link-visited: #999999;
+  --success: #3a9b3f;
+  --warning: #fca34a;
+  --error: #f8352a;
+  --disabled: #4d4d4d;
+  --light-gray: #b8b8b8;
+  --dark-gray: #272727;
+}
+
+:root {
+  color: var(--text);
+}
+
+input {
+  color: var(--text);
+  background-color: var(--dark-gray);
+}
+input::placeholder {
+  color: var(--link);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  margin: 0;
+}
+
+a {
+  color: var(--link-color);
+  transition: color 150ms ease;
+}
+a:hover {
+  color: var(--link-hover);
+}
+
+button,
+.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.35rem;
+}
+
+/* Green button */
+.btn-green {
+  background-color: var(--success);
+  color: var(--text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Disabled button */
+.btn-disabled {
+  background-color: var(--disabled);
+  color: var(--text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+
+/* Primary link */
+a.link-primary {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Normal link */
+a.link-normal {
+  color: var(--link);
+  text-decoration: none;
+}
+a.link-normal:hover {
+  color: var(--link-hover);
+}
+a.link-normal:visited {
+  color: var(--link-visited);
+}
+
+/* Small text */
+small,
+.text-small {
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+/* Muted text */
+.text-muted {
+  color: var(--link);
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1848px;
+  }
+}
+.container {
+  padding: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 2rem 0;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem 0;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding: 4rem 0;
+  }
+}
+
+
+/*# sourceMappingURL=theme.css.map */

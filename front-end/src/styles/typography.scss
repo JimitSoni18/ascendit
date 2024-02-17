@@ -1,0 +1,79 @@
+@use "sass:list";
+@use "sass:map";
+
+$font-sizes: (
+	640px: (
+		(h1, ".header"): 32px,
+		(h2, ".sub-header"): 28px,
+		(h4, ".title"): 22px,
+		(p ".content"): 16px,
+		(small, ".caption"): 14px,
+	),
+	768px: (
+		(h1, ".header"): 36px,
+		(h2, ".sub-header"): 32px,
+		(h4, ".title"): 24px,
+		(p ".content"): 18px,
+		(small, ".caption"): 16px,
+	),
+	1024px: (
+		(h1, ".header"): 40px,
+		(h2, ".sub-header"): 36px,
+		(h4, ".title"): 28px,
+		(p ".content"): 20px,
+		(small, ".caption"): 18px,
+	),
+	1280px: (
+		(h1, ".header"): 44px,
+		(h2, ".sub-header"): 40px,
+		(h4, ".title"): 32px,
+		(p ".content"): 22px,
+		(small, ".caption"): 20px,
+	),
+	1536px: (
+		(h1, ".header"): 48px,
+		(h2, ".sub-header"): 44px,
+		(h4, ".title"): 36px,
+		(p ".content"): 24px,
+		(small, ".caption"): 22px,
+	),
+	1848px: (
+		(h1, ".header"): 52px,
+		(h2, ".sub-header"): 48px,
+		(h4, ".title"): 40px,
+		(p ".content"): 26px,
+		(small, ".caption"): 24px,
+	),
+);
+
+h1,
+.header {
+	font-size: 28px;
+}
+h2,
+.sub-header {
+	font-size: 24px;
+}
+h4,
+.title {
+	font-size: 18px;
+}
+p,
+b,
+.content {
+	font-size: 14px;
+}
+small,
+.caption {
+	font-size: 12px;
+}
+
+@each $breakpoint, $font-size-map in $font-sizes {
+	@media (min-width: $breakpoint) {
+		@each $selector, $size in $font-size-map {
+			#{$selector} {
+				font-size: $size;
+			}
+		}
+	}
+}
