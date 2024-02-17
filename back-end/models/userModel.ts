@@ -1,6 +1,7 @@
 // const mongoose = require("mongoose");
-import { Model, Schema, model } from "mongoose";
+import { Model, Schema, Document, model } from "mongoose";
 import bcrypt from "bcrypt";
+import { isEmail, isStrongPassword } from "validator";
 
 interface IUser {
 	email: string;
@@ -9,36 +10,79 @@ interface IUser {
 
 interface IUserMethods {}
 
-interface UserModel extends Model<IUser, {}, IUserMethods> {
-	signup(): void;
+interface IUserModel extends Model<IUser, {}, IUserMethods> {
+	signup(
+		email: string,
+		password: string
+	): Promise<Document<unknown, {}, IUser>>;
+
+	login(email: string, password: string): Promise<Document<unknown, {}, IUser>>;
 }
 
-const userSchema = new Schema<IUser, UserModel, IUserMethods>({
-	email: {
-		type: String,
-		required: true,
-		unique: true,
+const userSchema = new Schema<IUser, IUserModel>(
+	{
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+		},
+		password: { type: String, required: true },
 	},
-	password: {
-		type: String,
-		required: true,
-	},
-});
+	{
+		statics: {
+			async signup(email: string, password: string) {
+				{
+					const exists = await this.findOne({ email });
 
-// userSchema.pre("save", async function () {
-// 	console.log(this);
-// });
+					if (!email || !password) {
+						throw Error("All fields must be filled");
+					}
 
-// static signup method
-userSchema.static("signup", async function(email, password) {
-	const exists = await this.findOne({ email });
+					if (!isEmail(email)) {
+						throw Error("Email is not valid");
+					}
 
-	if (exists) {
-		throw Error("Email already in use");
+					if (!isStrongPassword(password)) {
+						throw Error("Password not strong enough");
+					}
+
+					if (exists) {
+						throw Error("Email already in use");
+					}
+
+					const salt = await bcrypt.genSalt(10);
+					password = await bcrypt.hash(password, salt);
+
+					const user: Document<unknown, {}, IUser> = await this.create({
+						email,
+						password,
+					});
+
+					return user;
+				}
+			},
+
+			async login(email, password) {
+				if (!email && !password) {
+					throw Error("All fields must be filled");
+				}
+
+				const user = await this.findOne({ email });
+
+				if (!user) {
+					throw Error("Incorrect email");
+				}
+
+				const match = await bcrypt.compare(password, user.password);
+
+				if (!match) {
+					throw Error("Incorrect password");
+				}
+
+				return user;
+			},
+		},
 	}
+);
 
-	const salt = await bcrypt.genSalt(10);
-	const hash = await bcrypt.hash(password, salt);
-})
-
-export default model("User", userSchema);
+export default model<IUser, IUserModel>("User", userSchema);
