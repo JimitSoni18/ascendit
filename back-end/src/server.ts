@@ -1,30 +1,34 @@
 import express from "express";
-import loginRoutes from "./routes/auth/login";
+import loginRoutes from "src/routes/auth/login";
+import testRoutes from "src/routes/test/test";
 import mongoose from "mongoose";
 import assert from "assert";
+import cookieParser from "cookie-parser";
 import "dotenv/config";
 
 // config
 assert(
 	process.env.MONGO_CONNECTION_URL !== undefined,
-	"The mongo connection URL is not set in the environment. Please refer .env.sample for a sample config",
+	"The mongo connection URL is not set in the environment. Please refer .env.sample for a sample config"
 );
 assert(
 	process.env.PORT !== undefined,
-	"The server port number is not specified in the environment. Please refer .env.sample for a sample config",
+	"The server port number is not specified in the environment. Please refer .env.sample for a sample config"
 );
 assert(
 	process.env.JWT_SECRET !== undefined,
-	"The JWT secret is not specified in the environment. Please refer .env.sample for a sample config",
+	"The JWT secret is not specified in the environment. Please refer .env.sample for a sample config"
 );
 
 const app = express();
 
 // middleware
 app.use(express.json());
+app.use(cookieParser());
 
 // routes
 app.use("/api/auth", loginRoutes);
+app.use("/api/tests", testRoutes);
 
 initiateConnection()
 	.then(() => {

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import User from "../models/userModel";
+import User from "src/models/userModel";
 import jwt from "jsonwebtoken";
 
 function createToken(_id: unknown) {
@@ -16,7 +16,12 @@ async function loginUser(req: Request, res: Response) {
 		// create token
 		const token = createToken(user._id);
 
-		res.status(200).json({ email, token });
+		res.cookie("token", token, {
+			httpOnly: true,
+			sameSite: "none",
+			secure: true,
+		});
+		res.status(200).json({ email });
 	} catch (err) {
 		res.status(400).json({ error: err.message });
 	}
@@ -32,7 +37,12 @@ async function signupUser(req: Request, res: Response) {
 		// create a token
 		const token = createToken(user._id);
 
-		res.status(200).json({ email, token });
+		res.status(200).json({ email });
+		res.cookie("token", token, {
+			httpOnly: true,
+			sameSite: "none",
+			secure: true,
+		});
 	} catch (err) {
 		res.status(400).json({ error: err.message });
 	}
