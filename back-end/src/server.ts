@@ -1,6 +1,7 @@
 import express from "express";
 import loginRoutes from "src/routes/auth/login";
 import testRoutes from "src/routes/test/test";
+import reviewRoutes from "src/routes/review/review";
 import mongoose from "mongoose";
 import assert from "assert";
 import cookieParser from "cookie-parser";
@@ -29,6 +30,7 @@ app.use(cookieParser());
 // routes
 app.use("/api/auth", loginRoutes);
 app.use("/api/tests", testRoutes);
+app.use("/api/review", reviewRoutes);
 
 initiateConnection()
 	.then(() => {

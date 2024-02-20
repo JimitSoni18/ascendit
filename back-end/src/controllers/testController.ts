@@ -24,7 +24,7 @@ export async function listTests(_: Request, res: Response) {
 
 export async function getTestById(req: Request, res: Response) {
 	try {
-		const _id = req.params.id;
+		const _id = new Types.ObjectId(req.params.id);
 		res.json(await Test.findById(_id));
 	} catch (error) {
 		res.json({ error });
@@ -41,9 +41,8 @@ export async function createTest(req: Request, res: Response) {
 	}
 	try {
 		const testData: ICreateTestPayload = req.body;
-		const user = await User.findById({
-			_id: new Types.ObjectId(parsedToken._id),
-		});
+		const user_id = new Types.ObjectId(parsedToken._id);
+		const user = await User.findById(user_id);
 
 		if (!user) {
 			return res.status(401).json({ error: "Who are you?!" });
