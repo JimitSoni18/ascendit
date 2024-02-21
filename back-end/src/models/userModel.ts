@@ -1,6 +1,6 @@
 // const mongoose = require("mongoose");
 import { Model, Schema, Document, model } from "mongoose";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { isEmail, isStrongPassword } from "validator";
 
 interface IUser {

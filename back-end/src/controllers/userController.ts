@@ -37,12 +37,12 @@ async function signupUser(req: Request, res: Response) {
 		// create a token
 		const token = createToken(user._id);
 
-		res.status(200).json({ email });
 		res.cookie("token", token, {
 			httpOnly: true,
 			sameSite: "none",
 			secure: true,
 		});
+		res.status(200).json({ email });
 	} catch (err) {
 		res.status(400).json({ error: err.message });
 	}

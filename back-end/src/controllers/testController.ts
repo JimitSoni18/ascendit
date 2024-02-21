@@ -36,8 +36,7 @@ export async function createTest(req: Request, res: Response) {
 	try {
 		parsedToken = validateAndGetId(req.cookies.token);
 	} catch (error) {
-		res.status(401).json({ error: "Unauthorized" });
-		return;
+		return res.status(401).json({ error: "Unauthorized" });
 	}
 	try {
 		const testData: ICreateTestPayload = req.body;

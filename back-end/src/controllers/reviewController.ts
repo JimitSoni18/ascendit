@@ -17,8 +17,7 @@ export async function createReview(req: Request, res: Response) {
 	try {
 		parsedToken = validateAndGetId(req.cookies.token);
 	} catch (error) {
-		res.status(401).json({ error: "Unauthorized" });
-		return;
+		return res.status(401).json({ error: "Unauthorized" });
 	}
 	try {
 		const review: IReview = req.body;
@@ -38,11 +37,11 @@ export async function createReview(req: Request, res: Response) {
 		}
 
 		if (review.comment.length < 10) {
-			res.status(400).json({ error: "Comment is too short" });
+			return res.status(400).json({ error: "Comment is too short" });
 		}
 
 		if (review.rating < 1 || review.rating > 10) {
-			res.status(400).json({ error: "Rating is invalid" });
+			return res.status(400).json({ error: "Rating is invalid" });
 		}
 
 		const createdReview = await Review.create({
