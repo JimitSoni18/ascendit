@@ -1,5 +1,7 @@
 import { JSXElement } from "solid-js";
-import AuthNavbar, { NavbarLinks } from "../../Components/Navigation/AuthNavbar";
+import AuthNavbar, {
+	NavbarLinks,
+} from "../../Components/Navigation/AuthNavbar";
 import authStyles from "./AuthLayout.module.css";
 
 interface IAuthLayoutProps {

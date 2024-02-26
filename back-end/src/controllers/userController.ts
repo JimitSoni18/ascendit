@@ -21,7 +21,7 @@ async function loginUser(req: Request, res: Response) {
 			sameSite: "none",
 			secure: true,
 		});
-		res.status(200).json({ email });
+		res.status(200).json({ email, id: user._id });
 	} catch (err) {
 		res.status(400).json({ error: err.message });
 	}

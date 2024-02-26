@@ -2,6 +2,7 @@
 
 :root {
 	--primary: #9852c6;
+	--primary-dim: #1a1a1a;
 	--secondary: #4a86e8;
 	--tertiary: #f7c6f3;
 	--background: #121212;
@@ -113,11 +114,17 @@ small,
 	color: var(--link);
 }
 
-// Container
+/* Container */
 
 .container {
 	max-width: 640px;
 	margin: 0 auto;
+}
+
+@media (max-width: 639px) {
+	.container {
+		width: 96%;
+	}
 }
 
 @media (min-width: 640px) {

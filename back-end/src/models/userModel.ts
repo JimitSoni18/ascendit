@@ -13,7 +13,7 @@ interface IUserMethods {}
 interface IUserModel extends Model<IUser, {}, IUserMethods> {
 	signup(
 		email: string,
-		password: string
+		password: string,
 	): Promise<Document<unknown, {}, IUser>>;
 
 	login(email: string, password: string): Promise<Document<unknown, {}, IUser>>;
@@ -70,7 +70,7 @@ const userSchema = new Schema<IUser, IUserModel>(
 				const user = await this.findOne({ email });
 
 				if (!user) {
-					throw Error("Incorrect email");
+					throw Error("User not found");
 				}
 
 				const match = await bcrypt.compare(password, user.password);
@@ -82,7 +82,7 @@ const userSchema = new Schema<IUser, IUserModel>(
 				return user;
 			},
 		},
-	}
+	},
 );
 
 export default model<IUser, IUserModel>("User", userSchema);

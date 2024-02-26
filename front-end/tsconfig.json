@@ -8,15 +8,28 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"],
+    "types": [
+      "vite/client"
+    ],
     "noEmit": true,
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@Components/*": ["./src/Components/*"],
-      "@Layouts/*": ["./src/Layouts/*"],
-      "@Pages/*": ["./src/Pages/*"],
-      "@Store/*": ["./src/Store/*"]
+      "@Components/*": [
+        "./src/Components/*"
+      ],
+      "@Layouts/*": [
+        "./src/Layouts/*"
+      ],
+      "@Pages/*": [
+        "./src/Pages/*"
+      ],
+      "@Store/*": [
+        "./src/Store/*"
+      ],
+      "@hooks/*": [
+        "./src/util/hooks/*"
+      ]
     }
-  },
+  }
 }

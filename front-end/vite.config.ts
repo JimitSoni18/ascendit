@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import path from "path";
-// import devtools from 'solid-devtools/vite';
+// import devtools from "solid-devtools/vite";
 
 export default defineConfig({
 	resolve: {
@@ -9,6 +9,8 @@ export default defineConfig({
 			"@Components": path.resolve(__dirname, "./src/Components/"),
 			"@Layouts": path.resolve(__dirname, "./src/Layouts/"),
 			"@Pages": path.resolve(__dirname, "./src/Pages/"),
+			"@Store": path.resolve(__dirname, "./src/Store"),
+			"@hooks": path.resolve(__dirname, "./src/util/hooks"),
 		},
 	},
 	plugins: [
@@ -34,5 +36,3 @@ export default defineConfig({
 		legalComments: "none",
 	},
 });
-
-console.log("->> ", path.resolve(__dirname, "./src/Components/"));

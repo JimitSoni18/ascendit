@@ -1,4 +1,4 @@
-import TextFieldWValidation from "@Components/TextFieldWValidation";
+import TextFieldWValidation from "@Components/Form/TextFieldWValidation";
 import AuthLayout from "@Layouts/Auth/AuthLayout";
 import { Button } from "@kobalte/core";
 import loginStyles from "./LoginPage.module.css";
@@ -17,7 +17,7 @@ export default function () {
 	const [email, setEmail] = createSignal("");
 	const [password, setPassword] = createSignal("");
 
-	async function login(_: Event) {
+	async function signup(_: Event) {
 		let body: string;
 		try {
 			body = JSON.stringify({ email: email(), password: password() });
@@ -37,13 +37,15 @@ export default function () {
 				alert(err);
 			});
 
-		console.log({ result });
+		if (result === undefined || "error" in result) {
+			alert("Unable to signup");
+		}
 	}
 
 	return (
 		<AuthLayout
 			links={[{ href: "/signup", name: "Sign Up" }]}
-			submitHandler={login}
+			submitHandler={signup}
 		>
 			<TextFieldWValidation
 				value={email}

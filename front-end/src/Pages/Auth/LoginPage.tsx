@@ -1,8 +1,10 @@
-import TextFieldWValidation from "@Components/TextFieldWValidation";
+import TextFieldWValidation from "@Components/Form/TextFieldWValidation";
 import AuthLayout from "@Layouts/Auth/AuthLayout";
 import { Button } from "@kobalte/core";
 import loginStyles from "./LoginPage.module.css";
 import { createSignal } from "solid-js";
+import { authDispatch } from "@Store/Contexts/AuthContext";
+import { useNavigate } from "@solidjs/router";
 
 function validateEmail(email: string) {
 	const emailRegex = /^(?!-)[a-zA-Z0-9\-_]+[^\-]@[^@\s]+\.\w{2,7}/;
@@ -14,6 +16,7 @@ function validatePassword(password: string) {
 }
 
 export default function () {
+	const navigate = useNavigate();
 	const [email, setEmail] = createSignal("");
 	const [password, setPassword] = createSignal("");
 
@@ -37,7 +40,17 @@ export default function () {
 				alert(err);
 			});
 
-		console.log({ result });
+		if (result === undefined || "error" in result) {
+			alert(result.error);
+			return;
+		}
+
+		authDispatch({
+			type: "login",
+			payload: { id: result.id, username: result.email },
+		});
+
+		navigate("/app", { replace: true });
 	}
 
 	return (

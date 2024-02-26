@@ -1,0 +1,63 @@
+/* styles.css */
+
+.card {
+	background-color: var(--background);
+	border: 1px solid var(--dark-gray);
+	border-radius: 8px;
+	overflow: hidden;
+	width: 300px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card_image {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.card_content {
+	padding: 1rem;
+}
+
+.card_title {
+	color: var(--text);
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+
+.card_description {
+	color: var(--light-gray);
+	margin-bottom: 16px;
+}
+
+.card_rating {
+	color: var(--primary);
+}
+
+.card_rating .star {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	border: 1px solid var(--light-gray);
+	border-radius: 50%;
+	margin-right: 4px;
+	cursor: pointer;
+}
+
+.card_rating .star:hover,
+.card_rating .star.active {
+	background-color: var(--primary);
+	border: 1px solid var(--primary);
+}
+
+.card_link {
+	color: var(--link);
+	text-decoration: none;
+	display: block;
+	margin-top: 16px;
+}
+
+.card_link:hover {
+	color: var(--link-hover);
+}

@@ -1,31 +1,29 @@
 .input_label {
-	display: block;
-	font-weight: 500;
-	margin-bottom: 0.5rem;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .field_root {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .field_error {
-	display: block;
-	color: var(--error);
-	margin-bottom: 0.3rem;
+  display: block;
+  color: var(--error);
+  margin-bottom: 0.3rem;
 }
 
 .field_desc {
-	display: block;
-	color: var(--light-gray);
+  display: block;
+  color: var(--light-gray);
 }
 
 .field_input {
-	display: block;
-	margin-bottom: 0.4rem;
-	border-radius: 0.3rem;
-	padding: 0.4rem 0.8rem;
-	outline: none;
-	border: 1px solid gray;
-	width: -webkit-fill-available;
-	width: -moz-fill-available;
+  display: block;
+  margin-bottom: 0.4rem;
+  outline: none;
+  border: 1px solid gray;
+  width: -webkit-fill-available;
+  width: -moz-fill-available;
 }

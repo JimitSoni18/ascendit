@@ -10,15 +10,15 @@ import "dotenv/config";
 // config
 assert(
 	process.env.MONGO_CONNECTION_URL !== undefined,
-	"The mongo connection URL is not set in the environment. Please refer .env.sample for a sample config"
+	"The mongo connection URL is not set in the environment. Please refer .env.sample for a sample config",
 );
 assert(
 	process.env.PORT !== undefined,
-	"The server port number is not specified in the environment. Please refer .env.sample for a sample config"
+	"The server port number is not specified in the environment. Please refer .env.sample for a sample config",
 );
 assert(
 	process.env.JWT_SECRET !== undefined,
-	"The JWT secret is not specified in the environment. Please refer .env.sample for a sample config"
+	"The JWT secret is not specified in the environment. Please refer .env.sample for a sample config",
 );
 
 const app = express();
