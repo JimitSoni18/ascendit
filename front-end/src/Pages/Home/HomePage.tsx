@@ -46,9 +46,27 @@ export default function () {
 				<div class={homeStyles.card_grid}>
 					<TestCard
 						title="Who is dis"
-						img="hemloman"
+						img="/flashcard.webp"
 						alt="hemloman?"
-						link="https://anthony.com"
+						link="https://github.com/JimitSoni18"
+					/>
+					<TestCard
+						title="Who is dis"
+						img="/flashcard.webp"
+						alt="hemloman?"
+						link="https://github.com/JimitSoni18"
+					/>
+					<TestCard
+						title="Who is dis"
+						img="/flashcard.webp"
+						alt="hemloman?"
+						link="https://github.com/JimitSoni18"
+					/>
+					<TestCard
+						title="Who is dis"
+						img="/flashcard.webp"
+						alt="hemloman?"
+						link="https://github.com/JimitSoni18"
 					/>
 				</div>
 			</section>

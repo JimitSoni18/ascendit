@@ -23,7 +23,7 @@ class APIManager {
 	}
 
 	private validateUrl(url: string) {
-		if (url.startsWith("/")) {
+		if (!url.startsWith("/")) {
 			throw new Error("URL segment must be prefixed with a `/`");
 		}
 	}

@@ -21,6 +21,7 @@
     "vite-plugin-solid": "^2.8.2"
   },
   "dependencies": {
+    "@jimitsoni18/solid-hooks": "^0.0.3",
     "@kobalte/core": "^0.12.1",
     "@solidjs/router": "^0.12.3",
     "solid-js": "^1.8.12"

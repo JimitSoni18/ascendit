@@ -1,4 +1,4 @@
-import { createReactiveContext } from "@hooks/useReactiveContext";
+import { createReactiveContext } from "@jimitsoni18/solid-hooks";
 
 interface IUser {
 	id: string;

@@ -115,45 +115,35 @@ small,
 }
 
 /* Container */
-
-.container {
-	max-width: 640px;
-	margin: 0 auto;
-}
+// Set container max-width values
+$container-max-widths: (
+	640px: 96%,
+	768px: 640px,
+	1024px: 768px,
+	1280px: 1024px,
+	1536px: 1280px,
+	1848px: 1536px,
+);
 
 @media (max-width: 639px) {
 	.container {
-		width: 96%;
+		max-width: 96%;
 	}
 }
 
-@media (min-width: 640px) {
-	.container {
-		max-width: 768px;
+// Loop through breakpoints to generate media queries
+@each $breakpoint, $max-width in $container-max-widths {
+	@media (min-width: $breakpoint) {
+		.container {
+			max-width: $max-width;
+		}
 	}
 }
-@media (min-width: 768px) {
-	.container {
-		max-width: 1024px;
-	}
-}
-@media (min-width: 1024px) {
-	.container {
-		max-width: 1280px;
-	}
-}
-@media (min-width: 1280px) {
-	.container {
-		max-width: 1536px;
-	}
-}
-@media (min-width: 1536px) {
-	.container {
-		max-width: 1848px;
-	}
-}
+
+// Set padding for smallest screen size
 .container {
 	padding: 1.5rem 0;
+	margin: 0 auto;
 }
 
 @media (min-width: 640px) {
