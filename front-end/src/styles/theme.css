@@ -55,7 +55,7 @@ button,
 
 /* Green button */
 .btn-green {
-  background-color: var(--success);
+  background-color: var(--success) !important;
   color: var(--text);
   border: none;
   padding: 10px 20px;
@@ -65,7 +65,7 @@ button,
 
 /* Primary button */
 .btn-primary {
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
   color: var(--text);
   border: none;
   padding: 10px 20px;
@@ -75,7 +75,7 @@ button,
 
 /* Disabled button */
 .btn-disabled {
-  background-color: var(--disabled);
+  background-color: var(--disabled) !important;
   color: var(--text);
   border: none;
   padding: 10px 20px;
@@ -115,60 +115,65 @@ small,
 
 /* Container */
 @media (max-width: 639px) {
-  .container {
+  .cosmic-container, .cosmic-container-p {
     max-width: 96%;
   }
 }
 @media (min-width: 640px) {
-  .container {
+  .cosmic-container, .cosmic-container-p {
     max-width: 96%;
   }
 }
 @media (min-width: 768px) {
-  .container {
+  .cosmic-container, .cosmic-container-p {
     max-width: 640px;
   }
 }
 @media (min-width: 1024px) {
-  .container {
+  .cosmic-container, .cosmic-container-p {
     max-width: 768px;
   }
 }
 @media (min-width: 1280px) {
-  .container {
+  .cosmic-container, .cosmic-container-p {
     max-width: 1024px;
   }
 }
 @media (min-width: 1536px) {
-  .container {
+  .cosmic-container, .cosmic-container-p {
     max-width: 1280px;
   }
 }
 @media (min-width: 1848px) {
-  .container {
+  .cosmic-container, .cosmic-container-p {
     max-width: 1536px;
   }
 }
-.container {
+.cosmic-container-p {
   padding: 1.5rem 0;
   margin: 0 auto;
 }
 
+.full-w-container {
+  max-width: 1848px;
+  width: 96%;
+  margin: 0 auto;
+}
+
 @media (min-width: 640px) {
-  .container {
+  .cosmic-container-p {
     padding: 2rem 0;
   }
 }
 @media (min-width: 768px) {
-  .container {
+  .cosmic-container-p {
     padding: 3rem 0;
   }
 }
 @media (min-width: 1024px) {
-  .container {
+  .cosmic-container-p {
     padding: 4rem 0;
   }
 }
-
 
 /*# sourceMappingURL=theme.css.map */

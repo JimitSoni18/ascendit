@@ -1,6 +1,9 @@
 .home_header {
 	padding: 0.75rem 1.2rem;
-	background-color: #1a1a1a;
+	background-color: var(--primary-dim);
+	position: sticky;
+	top: 0;
+	z-index: 1;
 }
 
 .header_container {
@@ -18,14 +21,19 @@
 .card_grid {
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1rem;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	gap: 1.25rem;
 }
 
 @media (min-width: 640px) {
 	.card_grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 768px) {
+	.card_grid {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.25rem;
 	}
 }
 @media (min-width: 1280px) {

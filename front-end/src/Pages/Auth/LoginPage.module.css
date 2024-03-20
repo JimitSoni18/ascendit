@@ -1,5 +1,5 @@
 .signin_btn {
-	background-color: var(--success);
+	background-color: var(--success) !important;
 	color: var(--text);
 	padding: 0.5rem 0.75rem;
 	width: 100%;

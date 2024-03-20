@@ -1,11 +1,29 @@
-/* styles.css */
-
 .card {
 	background-color: var(--background);
 	border: 1px solid var(--dark-gray);
 	border-radius: 8px;
 	overflow: hidden;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: transform 300ms, box-shadow 300ms;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card_image {
+	scale: 1;
+	transition: scale 300ms;
+}
+
+.card:hover .card_image {
+	scale: 1.1;
+}
+
+.image_container {
+	overflow: hidden;
 }
 
 .card_image {

@@ -1,12 +1,8 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
-import { Router, Route } from "@solidjs/router";
-
-import "./index.css";
-import LoginPage from "./Pages/Auth/LoginPage";
-import SignupPage from "@Pages/Auth/SignupPage";
-import HomePage from "@Pages/Home/HomePage";
 import { AuthContext, getAuthState } from "@Store/Contexts/AuthContext";
+import App from "./App";
+import "./index.css";
 
 const root = document.getElementById("root");
 
@@ -19,11 +15,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 render(
 	() => (
 		<AuthContext.Provider value={getAuthState}>
-			<Router>
-				<Route path="/app" component={HomePage} />
-				<Route path="/login" component={LoginPage} />
-				<Route path="/signup" component={SignupPage} />
-			</Router>
+			<App />
 		</AuthContext.Provider>
 	),
 	root!,

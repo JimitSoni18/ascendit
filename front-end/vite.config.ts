@@ -10,7 +10,7 @@ export default defineConfig({
 			"@Layouts": path.resolve(__dirname, "./src/Layouts/"),
 			"@Pages": path.resolve(__dirname, "./src/Pages/"),
 			"@Store": path.resolve(__dirname, "./src/Store"),
-			"@hooks": path.resolve(__dirname, "./src/util/hooks"),
+			"@util": path.resolve(__dirname, "./src/util/"),
 		},
 	},
 	plugins: [

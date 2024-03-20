@@ -27,8 +27,8 @@
       "@Store/*": [
         "./src/Store/*"
       ],
-      "@hooks/*": [
-        "./src/util/hooks/*"
+      "@util/*": [
+        "./src/util/*"
       ]
     }
   }

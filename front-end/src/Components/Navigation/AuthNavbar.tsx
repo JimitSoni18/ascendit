@@ -8,7 +8,7 @@ export default function (props: { links?: NavbarLinks }) {
 	return (
 		<nav class={authNavStyles.auth_navbar}>
 			<div>
-				<img src="/brand/navbar_logo.svg" alt="Ascendit" width={30} />
+				<img src="/ascendit_logo.webp" alt="Ascendit" width={30} />
 			</div>
 			<div class={authNavStyles.links}>
 				<For each={props.links}>
